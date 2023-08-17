@@ -27,6 +27,7 @@
 ```
 
 6. Jalankan Aplikasi
+
    Jalankan bersamaan di terminal yang berbeda
 ```sh
     php artisan serve
