@@ -13,7 +13,7 @@ body{
     background: linear-gradient(to right, var(--primary), var(--ternary));
     background-attachment: fixed;
 }
-.main-layout{
+.home-layout{
     background-image: url("../img/main-img.png");
     background-repeat: no-repeat;
     background-position: bottom right;

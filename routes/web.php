@@ -15,7 +15,16 @@ use App\Models\Peminjaman;
 */
 
 Route::get('/', function () {
-    return view("pages/home/index");
+    return view("pages/main/home");
+});
+Route::get('/about-us', function () {
+    return view("pages/main/aboutUs");
+});
+Route::get('/sign-in', function () {
+    return view("pages/main/login");
+});
+Route::get('/sign-up', function () {
+    return view("pages/main/register");
 });
 Route::get('/peminjaman', function () {
     $peminjaman = new Peminjaman();

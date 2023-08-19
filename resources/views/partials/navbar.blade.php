@@ -11,8 +11,8 @@
   </div>
 	<div class="flex-2">
     <ul class="menu menu-horizontal px-1 uppercase font-bold">
-      <li><a href="/">SIGN-IN</a></li>
-      <li><a href="/about-us">SIGN-UP</a></li>
+      <li><a href="/sign-in">SIGN-IN</a></li>
+      <li><a href="/sign-up">SIGN-UP</a></li>
     </ul>
   </div>
   {{-- DELETE WHEN PRODUCTION --}}
