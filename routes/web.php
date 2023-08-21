@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ProvinsiAdminController;
+use App\Http\Controllers\AdminProvinsiController;
 use App\Models\Provinsi;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\EventListener\ProfilerListener;
+use Symfony\Component\HttpKernel\Profiler\Profile;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,5 +54,29 @@ Route::get('/blog', function () {
 
 
 // admin router
-Route::get('/provinsi/admin', [ProvinsiAdminController::class, 'index'])->middleware('auth');
-Route::get('/provinsi/admin/create', [ProvinsiAdminController::class, 'tambah'])->middleware('auth');
+Route::post("/provinsi/admin/delete/{id}", function ($id) {
+    $post = Provinsi::find($id);
+    $post->delete();
+    return redirect("/provinsi/admin")->with("success", "Hapus Data Berhasil");
+});
+Route::get("/provinsi/admin/edit/{id}", function ($id) {
+    $content = Provinsi::find($id);
+    return view("pages.admin.edit", [
+        "title" => "Halaman Edit Provinsi | Admin",
+        "content" => $content
+    ]);
+});
+Route::post("/provinsi/admin/edit/{id}", function ($id, Request $request) {
+    $provinsi = Provinsi::find($id);
+    $rules = [
+        "deskripsi" => "required"
+    ];
+    if ($request->nama != $provinsi->nama) {
+        $rules["nama"] = "required|unique:provinsis";
+    }
+    $validatedData = $request->validate($rules);
+    Provinsi::where("id", $provinsi->id)
+        ->update($validatedData);
+    return redirect("/provinsi/admin")->with("success", "Edit Data Berhasil");
+});
+Route::resource('/provinsi/admin', AdminController::class)->middleware("auth");
