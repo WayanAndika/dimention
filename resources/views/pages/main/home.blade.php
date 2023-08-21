@@ -7,7 +7,7 @@
             <h1 class="font-bold text-5xl pt-1">Temukan Kekayaan Warisan Indonesia</h1>
             <p class="py-10">
                 Galeri Nusantara hadir sebagai platform digital yang mengangkat kekayaan budaya, seni, dan warisan Indonesia. Tujuannya adalah untuk merayakan dan mempromosikan keragaman budaya Nusantara kepada masyarakat global. Kami mengundang semua orang untuk bersama-sama menjaga, menghargai, dan membagikan keindahan budaya Indonesia. Melalui Galeri Nusantara, kami mengajak Anda dalam perjalanan budaya yang memikat, menggali kisah masa lalu, dan merayakan keunikan yang menghiasi setiap bagian dari tanah ini.</p>
-            <button type="button" class="btn bg-second-100 text-first-100 hover:text-second-100">Lanjut Telusuri</button>
+            <button type="button" class="btn bg-white text-first-100 hover:text-second-100">Lanjut Telusuri</button>
         </div>
     </div>
     <div class="second-content mx-20 mt-60 text-center text-second-100">

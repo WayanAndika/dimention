@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Coba;
-use App\Models\Peminjaman;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProvinsiAdminController;
+use App\Models\Provinsi;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,23 +17,37 @@ use App\Models\Peminjaman;
 */
 
 Route::get('/', function () {
-    return view("pages/main/home");
-});
-Route::get('/about-us', function () {
-    return view("pages/main/aboutUs");
-});
-Route::get('/sign-in', function () {
-    return view("pages/main/login");
-});
-Route::get('/sign-up', function () {
-    return view("pages/main/register");
-});
-Route::get('/peminjaman', function () {
-    $peminjaman = new Peminjaman();
-    return view("pages/peminjaman/index", [
-        "pinjam" => Peminjaman::all()
+    return view("pages/main/home", [
+        "title" => "Halaman Home"
     ]);
 });
-Route::get('/{id}', function ($id) {
-    dd(Coba::find($id));
+Route::get('/about-us', function () {
+    return view("pages/main/aboutUs", [
+        "title" => "Halaman About Us"
+    ]);
 });
+Route::get('/sign-in', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/sign-in', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+// Register
+Route::get('/sign-up', [RegisterController::class, 'index']);
+Route::post('/sign-up', [RegisterController::class, 'store']);
+
+// Provinsi
+Route::get('/provinsi', function () {
+    return view("pages/provinsi/index", [
+        "title" => "Halaman Provinsi",
+        "provinsi" => Provinsi::all()
+    ]);
+});
+Route::get('/blog', function () {
+    return view("pages/provinsi/blog", [
+        "title" => "Halaman Blog"
+    ]);
+});
+
+
+
+// admin router
+Route::get('/provinsi/admin', [ProvinsiAdminController::class, 'index'])->middleware('auth');
+Route::get('/provinsi/admin/create', [ProvinsiAdminController::class, 'tambah'])->middleware('auth');
