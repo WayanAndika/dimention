@@ -14,20 +14,20 @@ body{
     background-attachment: fixed;
 }
 .home-layout{
-    background-image: url("../img/main-img.png");
+    background-image: url("/images/main-img.png");
     background-repeat: no-repeat;
     background-position: bottom right;
     height: 100vh;
 }
 
 .third-content {
-    background-image: url("../img/tenun.png");
+    background-image: url("/images/tenun.png");
     background-repeat: no-repeat;
     height: 100vh;
     background-size: cover;
 }
 .fourth-content {
-    background-image: url("../img/barong.png");
+    background-image: url("/images/barong.png");
     background-repeat: no-repeat;
     height: 100vh;
     background-size: cover;

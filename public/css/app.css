@@ -2050,20 +2050,20 @@ body{
     background-attachment: fixed;
 }
 .home-layout{
-    background-image: url(/images/main-img.png?73502417953d3d5f82761286c23c4b11);
+    background-image: url("/images/main-img.png");
     background-repeat: no-repeat;
     background-position: bottom right;
     height: 100vh;
 }
 
 .third-content {
-    background-image: url(/images/tenun.png?a5e6a6afe4251f499d1031b2f6e97929);
+    background-image: url("/images/tenun.png");
     background-repeat: no-repeat;
     height: 100vh;
     background-size: cover;
 }
 .fourth-content {
-    background-image: url(/images/barong.png?c4cad43b8503bc209bed323af9497891);
+    background-image: url("/images/barong.png");
     background-repeat: no-repeat;
     height: 100vh;
     background-size: cover;
@@ -2074,10 +2074,6 @@ body{
 .hover\:border-first-100:hover {
   --tw-border-opacity: 1;
   border-color: rgb(226 196 123 / var(--tw-border-opacity));
-}
-.hover\:bg-third-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(40 39 38 / var(--tw-bg-opacity));
 }
 .hover\:text-first-100:hover {
   --tw-text-opacity: 1;
